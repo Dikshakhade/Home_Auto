@@ -1,0 +1,18 @@
+.main{
+    width: 60vw;
+    height: 60vh;
+    background-image: url("https://www.automatedbuildings.com/news/jun21/articles/allied/Home%20Automation%20and%20Control.jpg");
+    position: relative;
+    left: 20%;
+    bottom: -5rem;
+}
+.btn-div{
+    display: flex;
+    justify-content: center;
+}
+.btn{
+    position:relative;
+    bottom: -4rem;
+    margin:20px;
+
+}
