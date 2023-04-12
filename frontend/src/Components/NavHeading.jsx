@@ -5,17 +5,15 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
-import { logout } from "../actions/userActions";
+import { logout } from "../features/auth/authSlice";
 
 function NavHeading() {
-  const history = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const userLogin = useSelector((state) => state.userLogin);
-  const { userInfo } = userLogin;
+  const userLogin = useSelector((state) => state.auth);
   const logoutHandler = () => {
     dispatch(logout());
-    history("/", { replace: true });
-    // <Navigate to="/home" replace={true} />;
+    navigate("/", { replace: true });
   };
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">

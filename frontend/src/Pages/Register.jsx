@@ -2,47 +2,51 @@ import React, { useState, useEffect } from "react";
 import Header from "../Components/Header";
 import { Button, Form, Row, Col } from "react-bootstrap";
 import Error from "../Components/Error";
-import axios from "axios";
+import { register, reset } from "../features/auth/authSlice";
 import Loading from "../Components/Loading";
 import { Link, useNavigate } from "react-router-dom";
-import { register } from "../actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
 
 function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setconfrimPassword] = useState("");
-  const [pic, setPic] = useState(
-    "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"
-  );
-  const [message, setMessage] = useState(null);
-  const [picMessage, setpicMessage] = useState(null);
+  const [password1, setPassword1] = useState("");
+  const [error, seterror] = useState("");
 
-  const history = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const userRegister = useSelector((state) => state.userRegister);
 
-  const { loading, error, userInfo } = userRegister;
+  const { userData, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+  useEffect(() => {
+    if (isError) {
+      seterror(message);
+    }
+    if (isSuccess || userData) {
+      navigate("/home");
+    }
+    dispatch(reset());
+  }, [userData, isLoading, isError, isSuccess, message, navigate, dispatch]);
+
   const submitHandler = async (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      setMessage("Passwords do not match");
+    if (password !== password1) {
+      console.log("Password do not match ");
     } else {
-      dispatch(register(name, email, password));
+      const userData = { name, email, password };
+      dispatch(register(userData));
     }
   };
-  useEffect(() => {
-    if (userInfo) {
-      history("/home");
-    }
-  }, [history, userInfo]);
-
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <Header title="Register">
       {error && <Error variant="danger" children={error} />}
       {message && <Error variant="danger" children={message} />}
-      {loading && <Loading />}
+      {isLoading && <Loading />}
       <Form onSubmit={submitHandler}>
         <Form.Group className="mb-3" controlId="name">
           <Form.Label>User Name</Form.Label>
@@ -85,21 +89,10 @@ function Register() {
           <Form.Control
             type="password"
             placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={(e) => setconfrimPassword(e.target.value)}
+            value={password1}
+            onChange={(e) => setPassword1(e.target.value)}
           />
         </Form.Group>
-
-        {/* <Form.Group className="mb-3" controlId="pic">
-          <Form.Label>Set Picture</Form.Label>
-          <Form.File
-            id="custom-file"
-            type="image/png"
-            placeholder="Upload Profile Picture"
-            value={pic}
-            onChange={(e) => postDetails(e.target.files[0])}
-          />
-        </Form.Group> */}
 
         <Button
           variant="info"
@@ -111,9 +104,9 @@ function Register() {
         </Button>
       </Form>
 
-      <p>
+      <div>
         Already have an account? <Link to="/login">Login</Link>
-      </p>
+      </div>
     </Header>
   );
 }

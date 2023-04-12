@@ -6,40 +6,39 @@ import Loading from "../Components/Loading";
 import Error from "../Components/Error";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../actions/userActions";
+import { login, reset } from "../features/auth/authSlice";
 
 function Login() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { userData, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  // useEffect(() => {
-  //   const userInfo = localStorage.getItem("userInfo");
-  //   if (userInfo) {
-  //     // history("/home", { replace: true });
-  //     <Navigate to="/home" replace={true} />;
-  //   }
-  // });
-  const dispatch = useDispatch();
-  const userLogin = useSelector((state) => state.userLogin);
-  const { loading, error, userInfo } = userLogin;
-  let history = useNavigate();
+  const [error, setError] = useState(false);
   useEffect(() => {
-    if (userInfo) {
-      // redirect("/home");
-      history("/home");
-      // <Navigate to="/home" replace={true} />;
+    if (isError) {
+      setError(message);
+      console.log(message);
     }
-  }, [history, userInfo]);
+    if (isSuccess || userData) {
+      navigate("/home");
+    }
+    dispatch(reset());
+  }, [userData, isLoading, isError, isSuccess, message, navigate, dispatch]);
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    dispatch(login(email, password));
+    const userData = { email, password };
+    dispatch(login(userData));
   };
+
   return (
     <div>
       <Header title="Login">
-        {error && <Error variant="danger" children={error.message} />}
-        {loading && <Loading />}
+        {error && <Error variant="danger" children={error} />}
+        {isLoading && <Loading />}
         <Form onSubmit={submitHandler}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -69,9 +68,9 @@ function Login() {
             Submit
           </Button>
 
-          <p>
+          <div>
             New Customer ? <Link to="/register"> Register here </Link>
-          </p>
+          </div>
         </Form>
       </Header>
     </div>

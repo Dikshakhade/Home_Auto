@@ -5,6 +5,8 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Home from "./Pages/Home";
 import NavHeading from "./Components/NavHeading";
+import { Provider } from "react-redux";
+import store from "./app/store";
 
 function App() {
   return (
