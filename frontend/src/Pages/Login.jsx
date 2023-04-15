@@ -7,6 +7,7 @@ import Error from "../Components/Error";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login, reset } from "../features/auth/authSlice";
+import io from "socket.io-client";
 
 function Login() {
   const navigate = useNavigate();
