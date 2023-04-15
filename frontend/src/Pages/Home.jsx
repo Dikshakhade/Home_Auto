@@ -6,24 +6,23 @@ import "./home.css";
 function Home() {
   const flag = false;
   const [state, setState] = useState(0);
-
+  async function fetchData() {
+    console.log(`beg value of state = ${state}`);
+    const config = {
+      headers: {
+        "Content-type": "application/json",
+      },
+    };
+    return await axios
+      .post("/users/home", { state }, config)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
   useEffect(() => {
-    async function fetchData() {
-      console.log(`beg value of state = ${state}`);
-      const config = {
-        headers: {
-          "Content-type": "application/json",
-        },
-      };
-      return await axios
-        .post("/users/home", { state }, config)
-        .then((res) => {
-          console.log(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
     fetchData();
     console.log(`end value of state= ${state}`);
   }, [state]);
