@@ -2,11 +2,14 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import "./home.css";
-
+import io from "socket.io-client";
 function Home() {
   const flag = false;
   const [state, setState] = useState(0);
-
+  const socket = io.connect("http://localhost:5000");
+  const handler = () => {
+    socket.emit("send_message", { message: 0 });
+  };
   useEffect(() => {
     async function fetchData() {
       console.log(`beg value of state = ${state}`);
@@ -31,6 +34,7 @@ function Home() {
   return (
     <div>
       <h1>Hello Diksha....</h1>
+      <button onClick={handler}>clickkkkkk</button>
       <Form>
         <Form.Check
           type="switch"
