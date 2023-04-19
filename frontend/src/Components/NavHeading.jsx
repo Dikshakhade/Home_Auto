@@ -6,6 +6,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import { logout } from "../features/auth/authSlice";
+import { Button } from "react-bootstrap";
 
 function NavHeading() {
   const navigate = useNavigate();
@@ -16,13 +17,18 @@ function NavHeading() {
     navigate("/", { replace: true });
   };
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      bg="dark"
+      variant="dark"
+      style={{ position: "sticky", top: "0px", height: "13vh" }}
+    >
       <Container>
         <Navbar.Brand href="/">Home Automation</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/features">Features</Nav.Link>
             <NavDropdown title="Diksha" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">My Account</NavDropdown.Item>
               <NavDropdown.Item onClick={logoutHandler}>

@@ -25,7 +25,7 @@ function Register() {
       seterror(message);
     }
     if (isSuccess || userData) {
-      navigate("/home");
+      navigate("/welcome");
     }
     dispatch(reset());
   }, [userData, isLoading, isError, isSuccess, message, navigate, dispatch]);

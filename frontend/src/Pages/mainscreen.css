@@ -1,18 +1,77 @@
-.main{
-    width: 60vw;
-    height: 60vh;
-    background-image: url("https://www.automatedbuildings.com/news/jun21/articles/allied/Home%20Automation%20and%20Control.jpg");
-    position: relative;
-    left: 20%;
-    bottom: -5rem;
+main {
+  width: 100vw;
+  height: 100vh;
+  background-color: #0093e9;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
 }
-.btn-div{
-    display: flex;
-    justify-content: center;
-}
-.btn{
-    position:relative;
-    bottom: -4rem;
-    margin:20px;
 
+#content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-items: center;
+}
+
+#content-text {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  padding-left: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 5rem;
+  line-height: 5rem;
+  color: #26394e;
+  margin-bottom: 2rem;
+}
+
+h1 span {
+  color: skyblue;
+  font-size: 5rem;
+}
+
+h1 u {
+  font-size: 5rem;
+  text-decoration: underline;
+  text-decoration-color: #073642;
+  text-underline-offset: 2.5rem;
+  text-decoration-thickness: 0.2rem;
+}
+
+h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 50;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: whitesmoke;
+  margin-top: 1rem;
+}
+.header-image {
+  max-height: 100vh;
+  position: relative;
+  top: 10;
+}
+button {
+  background-color: skyblue;
+  padding: 1rem 1rem;
+  border: 0.1rem solid skyblue;
+  border-radius: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #303c4e;
+  transition: 0.5s ease;
+  margin: 2rem;
+}
+
+button:hover {
+  background-color: #073642;
+  cursor: pointer;
+  color: white;
+  transition: 0.5s;
 }
