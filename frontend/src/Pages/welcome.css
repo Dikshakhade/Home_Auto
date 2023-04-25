@@ -30,3 +30,9 @@
   font-size: 1.5rem;
   margin: auto 1rem;
 }
+.links {
+  text-decoration: none;
+  font-size: 1rem;
+  color: white;
+  margin: auto 1.5rem auto 0px;
+}

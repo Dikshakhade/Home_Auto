@@ -11,19 +11,20 @@ function Fan() {
       <div>
         <div class="fan">
           <input
+            className="fan-input"
             type="checkbox"
-            id="btn"
+            id="fan-btn"
             onChange={(e) => {
               if (e.target.checked) setfanstate(1);
               else setfanstate(0);
             }}
           />
-          <label for="btn">
+          <label for="fan-btn" className="fan-label">
             <span></span>
             <span></span>
             <span></span>
           </label>
-          <div class="base"></div>
+          <div class="fan-base"></div>
         </div>
       </div>
     </div>

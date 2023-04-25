@@ -5,9 +5,10 @@ import "./light.css";
 import io from "socket.io-client";
 const socket = io.connect("http://localhost:4000");
 
-function Light() {
+function Light({ pic }) {
   const flag = false;
   const [state, setState] = useState(0);
+  console.log(pic.toString());
 
   const handler = () => {
     socket.emit("send_message", { message: state });
@@ -19,40 +20,39 @@ function Light() {
   return (
     <div
       className="main-div"
-      style={
-        state
-          ? {
-              backgroundColor: "#ffdee9",
-              backgroundImage:
-                "linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%)",
-            }
-          : {}
-      }
+      // style={
+      //   state
+      //     ? {
+      //         backgroundColor: "#ffdee9",
+      //         backgroundImage:
+      //           "linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%)",
+      //       }
+      //     : {}
+      // }
     >
       <Form>
         {state ? (
-          <label className="switch">Turn Off</label>
+          <p className="switch">TURN OFF</p>
         ) : (
-          <label className="switch">Turn On</label>
+          <p className="switch">TURN ON</p>
         )}
 
         <Form.Check
           type="switch"
           id="custom-switch"
           className="switch"
-          style={{ color: "blue" }}
           size="lg"
           value={state}
           onChange={(e) => {
             if (e.target.checked) setState(1);
             else setState(0);
-            handler();
+            // handler();
           }}
         />
       </Form>
       <div className="wrap1">
         <div
-          className="living-room"
+          className="room"
           style={
             state
               ? {
@@ -60,7 +60,9 @@ function Light() {
                 }
               : { filter: "brightness(10%)" }
           }
-        ></div>
+        >
+          <img src={pic} />
+        </div>
       </div>
     </div>
   );

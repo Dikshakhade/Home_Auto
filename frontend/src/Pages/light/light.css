@@ -1,0 +1,17 @@
+.wrap1 {
+  height: 70vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.switch {
+  position: relative;
+  left: 45%;
+  font-size: 1.7rem;
+  color: white;
+}
+.room img {
+  height: 70vh;
+  width: 50vw;
+}

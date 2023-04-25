@@ -11,7 +11,7 @@ import { Button } from "react-bootstrap";
 function NavHeading() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const userLogin = useSelector((state) => state.auth);
+  const { userData } = useSelector((state) => state.auth);
   const logoutHandler = () => {
     dispatch(logout());
     navigate("/", { replace: true });
@@ -29,7 +29,10 @@ function NavHeading() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <NavDropdown title="Diksha" id="collasible-nav-dropdown">
+            <NavDropdown
+              title={userData ? userData.name : "User"}
+              id="collasible-nav-dropdown"
+            >
               <NavDropdown.Item href="#action/3.1">My Account</NavDropdown.Item>
               <NavDropdown.Item onClick={logoutHandler}>
                 Logout
