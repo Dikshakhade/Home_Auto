@@ -42,4 +42,16 @@ Home automation web application with React.js,Socket.io and RaspberryPi
 ![image](https://github.com/Dikshakhade/Home_Auto/assets/91481706/b9fcf34c-5cc6-44f3-abc6-ee240170da3c)
 ## Login and Register Page
 ![image (1)](https://github.com/Dikshakhade/Home_Auto/assets/91481706/9f9c95c4-816c-4704-a066-a12329de1629)
+![image (2)](https://github.com/Dikshakhade/Home_Auto/assets/91481706/f0ce1745-32d3-4f38-8145-db1a3d12c950)
+## Welcome Page
+## Lights Off
+![image (3)](https://github.com/Dikshakhade/Home_Auto/assets/91481706/e294cc27-30c1-4799-ad33-0a99defeca37)
+## Lights on
+![image (4)](https://github.com/Dikshakhade/Home_Auto/assets/91481706/505e8a68-e41c-4cd0-b1ab-f74a3bbdef3f)
+## Control Temperature of AC
+![image (5)](https://github.com/Dikshakhade/Home_Auto/assets/91481706/d50db85d-dea2-4c0a-b509-a71e223bef23)
+
+
+
+
 
