@@ -22,4 +22,24 @@ Home automation web application with React.js,Socket.io and RaspberryPi
   },
 
 ````
+## Backend Dependencies
+````
+"dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "http": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.9.1",
+    "nodemon": "^2.0.20",
+    "socket.io": "^4.6.1"
+  }
+
+````
+## Landing Page
 ![image](https://github.com/Dikshakhade/Home_Auto/assets/91481706/b9fcf34c-5cc6-44f3-abc6-ee240170da3c)
+## Login and Register Page
+![image (1)](https://github.com/Dikshakhade/Home_Auto/assets/91481706/9f9c95c4-816c-4704-a066-a12329de1629)
+
