@@ -1,5 +1,6 @@
 # Home_Auto
 Home automation web application with React.js,Socket.io and RaspberryPi
+This system allows  to control my home's lights,fan and temperature, and other devices from web application
 ## Frontend Dependencies
 ````
 "@reduxjs/toolkit": "^1.9.3",
