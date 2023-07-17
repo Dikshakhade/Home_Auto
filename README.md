@@ -1,4 +1,4 @@
-# Home_Auto
+# Home_Automation
 Home automation web application with React.js, Socket.io and RaspberryPi
 This system allows to control home appliances as lights, fan and temperature, and other devices from web application
 ## Frontend Dependencies
